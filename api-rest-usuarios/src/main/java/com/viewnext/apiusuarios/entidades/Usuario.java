@@ -1,7 +1,9 @@
 package com.viewnext.apiusuarios.entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +31,13 @@ public class Usuario implements Serializable{
 	
 	@Size(min = 2, max = 10)
 	private String password;
+	
+	@Column(name = "timestamp", 
+			nullable = false, 
+			updatable = false, 
+			insertable = false, 
+			columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private Date timestamp;
 	
 	public Usuario() {
 		super();
