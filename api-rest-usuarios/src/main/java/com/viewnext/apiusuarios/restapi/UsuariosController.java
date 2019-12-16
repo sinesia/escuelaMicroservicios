@@ -90,7 +90,7 @@ public class UsuariosController {
 		
 		System.out.println(">>>>>>>>> DELETE ID RECIBIDO " + id);
 		
-		dao.existsById(id);
+		dao.deleteById(id);
 	}
 	
 	@DeleteMapping()
