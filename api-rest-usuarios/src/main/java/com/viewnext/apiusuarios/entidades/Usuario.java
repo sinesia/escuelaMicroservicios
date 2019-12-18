@@ -16,6 +16,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Usuario implements Serializable{
 	
@@ -48,6 +52,8 @@ public class Usuario implements Serializable{
 	nullable=true,
 	insertable = false,
 	updatable = false)
+	@JsonProperty("preferido_tema")
+	// @JsonBackReference
 	private Tema temaPreferido;
 	
 	// Info especifica de columna en bbdd
