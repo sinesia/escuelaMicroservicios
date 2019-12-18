@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
+// permite q sea usada como @EmbeddedId
 @Embeddable
 public class TemaDeUsuarioPK implements Serializable {
 
@@ -13,37 +14,39 @@ public class TemaDeUsuarioPK implements Serializable {
 
 	@Column(name="id_usuario")
 	@NotNull
-	private Integer usuario;
+	private Integer idUsuario;
 	
 	@Column(name="id_tema", nullable=false)
-	private Integer tema;
+	private Integer idTema;
 
 	public TemaDeUsuarioPK() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TemaDeUsuarioPK(@NotNull Integer usuario, Integer tema) {
+	public TemaDeUsuarioPK(@NotNull Integer idUsuario, Integer idTema) {
 		super();
-		this.usuario = usuario;
-		this.tema = tema;
+		this.idUsuario = idUsuario;
+		this.idTema = idTema;
 	}
 
-	public Integer getUsuario() {
-		return usuario;
+	public Integer getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setUsuario(Integer usuario) {
-		this.usuario = usuario;
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
-	public Integer getTema() {
-		return tema;
+	public Integer getIdTema() {
+		return idTema;
 	}
 
-	public void setTema(Integer tema) {
-		this.tema = tema;
+	public void setIdTema(Integer idTema) {
+		this.idTema = idTema;
 	}
-	
-	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}	
 }
