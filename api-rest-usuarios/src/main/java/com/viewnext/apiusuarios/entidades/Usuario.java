@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -28,11 +30,27 @@ public class Usuario implements Serializable{
 	@NotNull
 	@Size(min = 3, max = 255)
 	@Pattern(regexp = "^[a-zA-z0-9._%+-]+@[a-zA-z0-9.-]+\\.[a-zA-Z]{2,6}$")
+	@Column(unique=true)
 	private String email;
 	
-	@Size(min = 2, max = 10)
+	@Size(min = 2, max = 50)
 	private String password;
 	
+	@Column(name="id_tema_preferido",
+			nullable=true,
+			insertable = true,
+			updatable = true)
+	private Integer idTemaPreferido;
+	
+	@ManyToOne(optional=true)
+	@JoinColumn(name="id_tema_preferido", 
+	referencedColumnName="id",
+	nullable=true,
+	insertable = false,
+	updatable = false)
+	private Tema temaPreferido;
+	
+	// Info especifica de columna en bbdd
 	@Column(name = "timestamp", 
 			nullable = false, 
 			updatable = false, 
@@ -80,5 +98,29 @@ public class Usuario implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Integer getIdTemaPreferido() {
+		return idTemaPreferido;
+	}
+
+	public void setIdTemaPreferido(Integer idTemaPreferido) {
+		this.idTemaPreferido = idTemaPreferido;
+	}
+
+	public Tema getTemaPreferido() {
+		return temaPreferido;
+	}
+
+	public void setTemaPreferido(Tema tema) {
+		this.temaPreferido = tema;
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 }

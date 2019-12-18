@@ -17,7 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.viewnext.apiusuarios.entidades.Tema;
+import com.viewnext.apiusuarios.entidades.TemaDeUsuario;
+import com.viewnext.apiusuarios.entidades.TemaDeUsuarioPK;
 import com.viewnext.apiusuarios.entidades.Usuario;
+import com.viewnext.apiusuarios.model.AlmacenDAOTemas;
+import com.viewnext.apiusuarios.model.AlmacenDAOTemasDeUsuarios;
 import com.viewnext.apiusuarios.model.AlmacenDAOUsuarios;
 
 
@@ -31,7 +36,13 @@ public class UsuariosController {
 	// + lo asigna al RESTcONTROLLER AL CONSTRUIRLO
 	@Autowired
 	private AlmacenDAOUsuarios dao;
-
+	
+	@Autowired
+	private AlmacenDAOTemasDeUsuarios daoTemasUsu;
+	
+	@Autowired
+	private AlmacenDAOTemas daoTemas;
+	
 	@PostMapping()
 	public Usuario crearUsuario(@RequestBody Usuario usuario) { 
 		// recibe sin ID en body de peticion HTTP
@@ -100,4 +111,37 @@ public class UsuariosController {
 		
 		dao.delete(usuario);
 	}	
+	
+	@GetMapping(value = "/{idUsuario}/temas_usu")
+	public List<TemaDeUsuario> getTemasDeUsuario(@PathVariable Integer idUsuario) {
+		
+		System.out.println("<<<<<<<<<<< ID RECIBIDO : " + idUsuario);
+		List<TemaDeUsuario> temasUsu = daoTemasUsu.findTemasDeUnUsuario(idUsuario);
+		return temasUsu;
+	}
+	
+	@GetMapping(value = "/{idUsuario}/temas")
+	public List<Tema> getTemasPorUsuario(@PathVariable Integer idUsuario) {
+		
+		System.out.println("<<<<<<<<<<< getTemasPorUsuario - ID : " + idUsuario);
+		List<Tema> temasUsu = daoTemas.findTemasPorUsuario(idUsuario);
+		return temasUsu;
+	}
+
+	@PostMapping(value= "/{id}/temas/{idt}") 
+	public TemaDeUsuario addTemaDeUsuario (@PathVariable Integer id, 
+				@PathVariable(name = "idt") Integer idTema) {
+		
+		TemaDeUsuario nuevoTema = new TemaDeUsuario(id, idTema);
+		 
+		return daoTemasUsu.save(nuevoTema);
+	}
+	
+	@DeleteMapping(value= "/{id}/temas/{idt}") 
+	public String deleteTemaDeUsuario (@PathVariable Integer id, 
+				@PathVariable(name = "idt") Integer idTema) {
+		 
+		// daoTemasUsu.delete(id, idTema);
+		return "Tema de Usuario Borrado";
+	}
 }
