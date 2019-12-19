@@ -30,7 +30,7 @@ build/
 ### VS Code ###
 .vscode/
 
-
+# MAVEN
 target/
 pom.xml.tag
 pom.xml.releaseBackup

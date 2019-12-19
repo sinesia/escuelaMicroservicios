@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "1a50114e-fb6b-46d1-aa99-420dd8b49b1e",
-		"name": "Temas de Usuario",
+		"_postman_id": "7494f509-94f3-4505-a650-6307cf212504",
+		"name": "Temas de usuario",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Add Tema de Usuario 1 - 1",
+			"name": "Add Tema de usuario 1 - 1",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/api/usuarios/1/temas_usu",
+					"raw": "http://localhost:8081/api/usuarios/1/temas/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -21,19 +21,20 @@
 						"api",
 						"usuarios",
 						"1",
-						"temas_usu"
+						"temas",
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Add Tema de Usuario 2 - 3",
+			"name": "Add Tema de usuario 2 - 3",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/api/usuarios/1/temas_usu",
+					"raw": "http://localhost:8081/api/usuarios/2/temas/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -42,20 +43,21 @@
 					"path": [
 						"api",
 						"usuarios",
-						"1",
-						"temas_usu"
+						"2",
+						"temas",
+						"3"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Add Tema de Usuario 2 - 4",
+			"name": "Add Tema de usuario 2 - 4",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/api/usuarios/1/temas_usu",
+					"raw": "http://localhost:8081/api/usuarios/2/temas/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -64,15 +66,16 @@
 					"path": [
 						"api",
 						"usuarios",
-						"1",
-						"temas_usu"
+						"2",
+						"temas",
+						"4"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Add Tema de Usuario 1 - 3",
+			"name": "Add Tema de usuario 1 - 3",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -95,7 +98,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Tema de Usuario 1 - 3",
+			"name": "Delete Tema de usuario 1 - 3",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -118,7 +121,7 @@
 			"response": []
 		},
 		{
-			"name": "Retrieve Temas de Usuario 1",
+			"name": "GET Temas de usuario 1",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -140,12 +143,12 @@
 			"response": []
 		},
 		{
-			"name": "Retrieve Temas POR Usuario",
+			"name": "GET Temas POR usuario 1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/api/usuarios/1/temas_usu",
+					"raw": "http://localhost:8081/api/usuarios/2/temas",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -154,15 +157,15 @@
 					"path": [
 						"api",
 						"usuarios",
-						"1",
-						"temas_usu"
+						"2",
+						"temas"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Retrieve Temas de Usuario  2",
+			"name": "GET Temas de usuario 2",
 			"request": {
 				"method": "GET",
 				"header": [],

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d3fec6de-b579-48df-9a88-b413a15b2921",
+		"_postman_id": "7d79f8ec-8df5-44b1-8aab-f5d8c564fb76",
 		"name": "Rest Temas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -79,15 +79,18 @@
 			"response": []
 		},
 		{
-			"name": "Get usuario",
+			"name": "Get tema Jose",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/api/temas/1",
+					"raw": "http://172.16.2.4:8081/api/temas/1",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"172",
+						"16",
+						"2",
+						"4"
 					],
 					"port": "8081",
 					"path": [
@@ -100,7 +103,30 @@
 			"response": []
 		},
 		{
-			"name": "Get Tema Jose",
+			"name": "Get tema Javier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.16.2.1:8081/api/tema",
+					"protocol": "http",
+					"host": [
+						"172",
+						"16",
+						"2",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"tema"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get tema Copy",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -172,27 +198,6 @@
 					"path": [
 						"api",
 						"temas",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Borrar usuario 1 Copy",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8081/api/usuarios/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"usuarios",
 						"1"
 					]
 				}
