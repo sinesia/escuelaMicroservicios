@@ -1,2 +1,11 @@
-<p>lista-usuarios works!</p>
+<h3>Lista de Usuarios: </h3>
+
+<!-- Tipos de directivas: 
+    * directiva estructural (*ngFor, *ngIf, ...)-->
+<ul>
+    <li *ngFor="let usu of listaUsu">
+        <label>Datos: </label>
+        {{usu.id + ", " + usu.nombre + " - " + usu.email}}
+    </li>
+</ul>
 
