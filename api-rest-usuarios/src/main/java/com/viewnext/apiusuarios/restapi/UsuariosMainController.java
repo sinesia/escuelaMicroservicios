@@ -2,6 +2,8 @@ package com.viewnext.apiusuarios.restapi;
 
 import java.util.*;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,8 +49,8 @@ public class UsuariosMainController {
 	
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = {MediaType.APPLICATION_JSON_VALUE,
-						MediaType.APPLICATION_XML_VALUE,
-						MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+						MediaType.APPLICATION_XML_VALUE
+						})
 	public Usuario crearUsuario(@RequestBody Usuario usuario, 
 								@RequestParam String api) {
 		
@@ -56,12 +58,37 @@ public class UsuariosMainController {
 		
 		if("json".contentEquals(api.toLowerCase())) {
 			
-			usuario = restTemplate.postForObject(uriApiJson, usuario, Usuario.class);
-			
-			
+			usuario = restTemplate.postForObject(uriApiJson, usuario, Usuario.class);	
 		}	
 		
 		else { // deberia ser xml
+			usuario = restTemplate.postForObject(uriApiXML, usuario, Usuario.class);
+		}
+		
+		return usuario;
+	}
+	
+	@PostMapping(value="form")
+	public Usuario crearUsuarioPorParam(@RequestParam String nombre, 
+										@RequestParam String email,
+										@RequestParam String password,
+										@RequestParam String api) {
+		
+		Usuario usuario = new Usuario(null, nombre, email, password);
+		HttpEntity<Usuario> peticionHttp = new HttpEntity<Usuario>(usuario);
+		
+		RestTemplate restTemplate = new RestTemplate();
+			
+		if("json".contentEquals(api.toLowerCase())) {
+			// HttpHeaders headers = new HttpHeaders();
+			// peticionHttp.getHeaders().setContentType(MediaType.APPLICATION_JSON);
+
+			usuario = restTemplate.postForObject(uriApiJson, usuario, Usuario.class);	
+		}	
+		
+		else { // deberia ser xml
+		
+			// peticionHttp.getHeaders().setContentType(MediaType.APPLICATION_XML);
 			usuario = restTemplate.postForObject(uriApiXML, usuario, Usuario.class);
 		}
 		
