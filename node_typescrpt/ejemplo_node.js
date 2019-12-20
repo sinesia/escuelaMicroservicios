@@ -36,7 +36,7 @@ function fun1(par1, par2){
 // el ambito de var es a nivel de funcion
 // el ambito de let  es a nivel de bloque de {}, como en java
 Let fun2 = function(par1, par2){
-    return `Resultado fun2 : ${parA}, ${parB}`;
+    return 'Resultado fun2 : ${parA}, ${parB}';
 }
 var fun3 = new Function("parA", "parB", "return `Resultado fun3: ${parA}, ${parB}`");
 
