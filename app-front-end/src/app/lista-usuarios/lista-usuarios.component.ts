@@ -25,10 +25,11 @@ export class ListaUsuariosComponent implements OnInit {
   // independientemente de interfaz
   ngOnInit() {
     let obserConDatos: Observable<Usuario[]> = this.srvUsu.getTodos();
+
     // Le decimos al objeto observable, q cuando reciba datos
     // invoque a esta funcion callback
     obserConDatos.subscribe( datos => this.listaUsu = datos );
-   // obserConDatos.subscribe( datos => this.listaUsu = datos );
+    obserConDatos.subscribe( datos => console.log(JSON.stringify(datos)) );
 
     // hasta q no nos suscribimos, no hace peticion
   }

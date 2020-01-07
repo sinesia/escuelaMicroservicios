@@ -3,6 +3,7 @@ import { AlmacenLocalService } from './almacen-local.service';
 import { Usuario } from './entidades/Usuario';
 import { Observable, of  } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UsuariosService } from './usuarios.service';
 
 
 @Injectable({
@@ -28,6 +29,9 @@ export class UsuariosRestService {
 
     let observableHttp = this.clienteHttp.get<Usuario[]>(this.url);
     return observableHttp;
+  }
 
+  registro(usuario: Usuario): Observable<Usuario> {
+    return this.clienteHttp.post<Usuario>(this.url, usuario);
   }
 }

@@ -21,7 +21,6 @@ import { from } from 'rxjs';
     AppRoutingModule,
     HttpClientModule,// Para poder usar HTTP en toda la app
     FormsModule // para poder usar formularios
-
   ],
   providers: [],
   bootstrap: [AppComponent]

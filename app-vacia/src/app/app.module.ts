@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Browser } from 'protractor';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponente } from './app.componente';
-
+// public static void main 
 // Los metadatos de un modulo/comp/serv ....
 // es un objeto de JS q le pasamos al @Decorador
 @NgModule( {

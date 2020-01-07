@@ -1,7 +1,25 @@
-<p>registro-usuario works!</p>
-{{ variable }}
-{{ variable }}
+<!-- Convertir este componente en un formulario de registro : 
+        1 - construir formulario
+        2 - un boton para invocar un metodo del componente 
+        3 - preparamos dato q vamos a enviar (= usuario, {})
+        3 - el metodo al hacer tiene q avisar al Servicio cliente REST mediante POST
+        4 - recoger datos de usuario + mostrarlos (en especial el ID recibido) 
+-->>
 
-<input type="text" [(ngModel)]="variable" />
+<!-- Simple-Data-Binding
+{{ variable + " - " + usuario.nombre }}
 
+Double-Data-Binding 
+<input type="text" [(ngModel)]="variable" value="Nombre por defecto"/>
+
+Event-Binding 
 <input type="button" value="Boton" (click)  = "pulsar()" />
+
+-->
+
+<input type="text" [(ngModel)]="usuario.nombre" value="Nombre por defecto"/>
+<input type="text" [(ngModel)]="usuario.email" value="correo@correo.es"/>
+<input type="text" [(ngModel)]="usuario.password" value="1234"/>
+<br> {{ "Enviar " + usuario.nombre + " - " + usuario.password }}
+
+<input type="button" value="Boton" (click)  = "enviarDatos()" />
