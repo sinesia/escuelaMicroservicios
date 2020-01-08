@@ -13,6 +13,7 @@ import { UsuariosRestService } from '../usuarios-rest.service';
 export class ListaUsuariosComponent implements OnInit {
   listaUsu: Usuario[];
   public srvUsu: UsuariosRestService;
+  private usuarioParaModificar: Usuario;
 
   // Como usuarios service es @Injectable, Angular lo instancia
   // pasa como argumento del constructor automaticamente. IoD
@@ -24,13 +25,37 @@ export class ListaUsuariosComponent implements OnInit {
   // importa q este o no metodo para capturr interfaz,
   // independientemente de interfaz
   ngOnInit() {
-    let obserConDatos: Observable<Usuario[]> = this.srvUsu.getTodos();
-
+ 
     // Le decimos al objeto observable, q cuando reciba datos
     // invoque a esta funcion callback
-    obserConDatos.subscribe( datos => this.listaUsu = datos );
-    obserConDatos.subscribe( datos => console.log(JSON.stringify(datos)) );
+    let observableConDatos: Observable<Usuario[]> = this.srvUsu.getTodos();
+    observableConDatos.subscribe( datos => this.listaUsu = datos );
+    observableConDatos.subscribe( datos => console.log(JSON.stringify(datos)) );
 
     // hasta q no nos suscribimos, no hace peticion
+
+    let subscriptor = function(datos) {
+      let textoJSON = JSON.stringify(datos);
+      console.log(textoJSON);
+    };
+  }
+
+  prepararUsuParaModificar(usu: Usuario) :Usuario {
+
+    this.usuarioParaModificar = new Usuario(usu);
+    return this.usuarioParaModificar;
+  }
+  modificar() {
+    this.srvUsu.modificar(this.usuarioParaModificar).subscribe((usuModificado) => { 
+      alert(`Usuario con id ${usuModificado.id} modificado`);
+      this.ngOnInit();
+    });
+  }
+
+  eliminar(id: number) {
+    this.srvUsu.eliminar(id).subscribe(() => { 
+      alert('Usuario con id ${id} eliminado');
+      this.ngOnInit();
+    });
   }
 }

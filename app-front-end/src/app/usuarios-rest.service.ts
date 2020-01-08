@@ -34,4 +34,14 @@ export class UsuariosRestService {
   registro(usuario: Usuario): Observable<Usuario> {
     return this.clienteHttp.post<Usuario>(this.url, usuario);
   }
+
+  modificar(usuario: Usuario) {
+    return this.clienteHttp.put<Usuario>(this.url, usuario);
+  }
+
+  // '${uri}/${id}'
+  // uri + id
+  eliminar(id: number) {
+    return this.clienteHttp.delete<any>(`${this.url}/${id}`);
+  }
 }

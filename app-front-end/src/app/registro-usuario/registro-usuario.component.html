@@ -18,8 +18,10 @@ Event-Binding
 -->
 
 <input type="text" [(ngModel)]="usuario.nombre" value="Nombre por defecto"/>
-<input type="text" [(ngModel)]="usuario.email" value="correo@correo.es"/>
-<input type="text" [(ngModel)]="usuario.password" value="1234"/>
+<input type="email" [(ngModel)]="usuario.email" value="correo@correo.es"/>
+<input type="password" [(ngModel)]="usuario.password" value="1234"/>
 <br> {{ "Enviar " + usuario.nombre + " - " + usuario.password }}
-
 <input type="button" value="Boton" (click)  = "enviarDatos()" />
+
+<div *ngIf="!estaRegistrado"> Aun no se ha registrado </div>
+<div *ngIf="estaRegistrado"> Se ha registrado: ID: {{ usuario.id }} </div>

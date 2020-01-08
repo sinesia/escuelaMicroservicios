@@ -6,6 +6,18 @@
     <li *ngFor="let usu of listaUsu">
         <label>Datos: </label>
         {{usu.id + ", " + usu.nombre + " - " + usu.email}}
+        <input type="button" value="Modificar Usuario" (click)  = "formVisible=true; prepararUsuParaModificar(usu)" />
+        <input type="button" value="Eliminar Usuario" (click)  = "eliminar(usu.id)" />
+        
     </li>
 </ul>
+
+<div *ngIf="formVisible">
+    <h3>Modificar Usuario : </h3>
+    <input [(ngModel)]="usuarioParaModificar.nombre" />
+    <input [(ngModel)]="usuarioParaModificar.email" />
+    <input [(ngModel)]="usuarioParaModificar.password" />
+    <input value="OK" type="button" (click)="modificar()"/>  
+    <input value="X" type="button" (click)="formVisible=false"/> 
+</div>
 

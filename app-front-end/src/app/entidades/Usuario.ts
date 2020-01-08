@@ -4,4 +4,14 @@ export class Usuario {
     public email: string;
     public password: string;
     public idTemaPreferido: number;
+
+    public constructor(usu?: Usuario) {
+        if(arguments.length == 1) {
+            this.id = usu.id;
+            this.nombre = usu.nombre;
+            this.email = usu.email;
+            this.password = usu.password;
+        }
+        
+    }
 }

@@ -33,8 +33,8 @@ public class UsuariosMainController {
 	public List<Usuario> leerTodosTodos() {
 		
 		List<Usuario> listaTotal;
-		
 		RestTemplate resTemplate = new RestTemplate();
+		
 		// invocamos metodo GET http sobre API json 0.0.1
 		// y se encarga de des-serializar JSON en un ArrList
 		listaTotal = resTemplate.getForObject(uriApiJson, ListaUsuario.class);
