@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-comp-raiz', 
-    template: '<h2>Aqui estoy</h2>'
+    selector: 'app-comp-b', 
+    template: '<h2>Aqui estoy B</h2>'
 })
 // entidad q se convierte en objeto JS
-export /* = public */ class AppComponente {
+export /* = public */ class AppComponenteB {
 
     contador = 0;
 
